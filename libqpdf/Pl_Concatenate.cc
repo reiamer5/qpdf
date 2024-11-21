@@ -1,0 +1,33 @@
+#include <qpdf/Pl_Concatenate.hh>
+
+#include <stdexcept>
+
+Pl_Concatenate::Pl_Concatenate(char const* identifier, Pipeline* next) :
+    Pipeline(identifier, next)
+{
+    if (!next) {
+        throw std::logic_error("Attempt to create Pl_Concatenate with nullptr as next");
+    }
+}
+
+Pl_Concatenate::~Pl_Concatenate() // NOLINT (modernize-use-equals-default)
+{
+    // Must be explicit and not inline -- see QPDF_DLL_CLASS in README-maintainer
+}
+
+void
+Pl_Concatenate::write(unsigned char const* data, size_t len)
+{
+    next()->write(data, len);
+}
+
+void
+Pl_Concatenate::finish()
+{
+}
+
+void
+Pl_Concatenate::manualFinish()
+{
+    next()->finish();
+}

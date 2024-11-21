@@ -1,0 +1,5 @@
+WARNING: issue-101.pdf: file is damaged
+WARNING: issue-101.pdf (offset 3526): xref not found
+WARNING: issue-101.pdf: Attempting to reconstruct cross-reference table
+WARNING: issue-101.pdf (trailer, offset 1508): stream keyword found in trailer
+qpdf: issue-101.pdf: unable to find /Root dictionary
